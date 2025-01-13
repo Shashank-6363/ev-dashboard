@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Bar, Pie } from "react-chartjs-2";
 import Papa from "papaparse";
-// import { Chart as ChartJS } from "chart.js/auto"
-const DATA_URL = "/data/ev_population.csv"; // Ensure the CSV file is in the 'public/data' folder.
+import { Chart as ChartJS } from "chart.js/auto"
 
+const DATA_URL = "/data/ev_population.csv"; 
 const App = () => {
   const [chartData, setChartData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,6 @@ const App = () => {
         const response = await axios.get(DATA_URL);
         const csvData = response.data;
   
-        // Define parseCSV inside useEffect
         Papa.parse(csvData, {
           header: true,
           skipEmptyLines: true,
@@ -31,20 +30,7 @@ const App = () => {
     };
   
     fetchData();
-  }, []); // No dependencies needed now
-  
-
-  // const parseCSV = (csv) => {
-  //   Papa.parse(csv, {
-  //     header: true,
-  //     skipEmptyLines: true,
-  //     complete: (result) => {
-  //       const parsedData = result.data;
-  //       generateChartData(parsedData);
-  //       setLoading(false);
-  //     },
-  //   });
-  // };
+  }, []); 
 
   const generateChartData = (parsedData) => {
     const manufacturers = {};
