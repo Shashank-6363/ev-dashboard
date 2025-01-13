@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Bar, Pie } from "react-chartjs-2";
 import Papa from "papaparse";
-import { Chart as ChartJS } from "chart.js/auto"
+// import { Chart as ChartJS } from "chart.js/auto"
 const DATA_URL = "/data/ev_population.csv"; // Ensure the CSV file is in the 'public/data' folder.
 
 const App = () => {
